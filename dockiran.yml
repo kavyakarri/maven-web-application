@@ -4,4 +4,4 @@ services:
    tomcat:
      image: srikiranreddy/maven
      ports:
-       - "9000:9001"
+       - "8000:8900"
