@@ -5,7 +5,7 @@
 	<groupId>com.mt</groupId>
 	<artifactId>maven-web-application</artifactId>
 	<packaging>war</packaging>
-	<version>14.0-SNAPSHOT</version>
+	<version>14.1-SNAPSHOT</version>
 	
 	<name>MavenWeb Application</name>
 	<url>http://mithuntechnologies.com</url>
@@ -89,7 +89,7 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Releases Nexus Repository</name>
-	      <url>http://13.127.112.220:8081/repository/kavya-release/</url>
+	      <url>http://13.127.112.220:8081/repository/kavya-releases/</url>
 	    </repository>
 	    <snapshotRepository>
 	      <id>nexus</id>
