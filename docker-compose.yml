@@ -1,6 +1,24 @@
-version: '3.1'
+version: '3'
+
 services:
-   tomcat:
-     image: srikiranreddy/maven
-     ports:
-       - "9000:8900"
+        jboss:
+                image: tomcat
+                container_name: kavya_tomcat
+                ports:
+                        - "8090:8080"
+
+                volumes:
+                        - kavya:/usr/local/tomcat/webapps
+                networks:
+                        - hima
+                deploy:
+                        replicas: 2
+
+
+volumes:
+        kavya:
+
+
+networks:
+        hima:
+
