@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-        jboss:
-                image: tomcat
+        tomcat:
+                image: 13.235.18.156:8083/hima
                 container_name: kavya_tomcat
                 ports:
                         - "8090:8080"
@@ -11,14 +11,21 @@ services:
                         - kavya:/usr/local/tomcat/webapps
                 networks:
                         - hima
-                deploy:
-                        replicas: 2
-
-
+         jboss:
+               image: 13.235.18.156:8083/kavya 
+               container_name: hima_jboss
+               ports:
+                     - "8089:8080"
+                     - "9990:9990"
+                volumes:
+                        -wild:/opt/jboss/wildfly/standalone/deployments
+                networks:
+                        -jboss                
 volumes:
         kavya:
-
+        wild:
 
 networks:
         hima:
+        jboss:
 
