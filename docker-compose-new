@@ -1,0 +1,55 @@
+version: '3'
+
+services:
+
+        tomcatnew:
+                image: 13.127.33.147:8083/hima
+                container_name: kavya_tomcat
+                ports:
+                        - "8090:8080"
+
+                volumes:
+                        - kavya:/usr/local/tomcat/webapps
+                networks:
+                        - hima
+
+        jbossnew:
+
+                image: 13.127.33.147:8083/kavya
+                container_name: hima_jboss
+                ports:
+                     - "8089:8080"
+                     - "9990:9990"
+                volumes:
+                        - wild:/opt/jboss/wild/standalone/deployments
+                networks:
+                        - jboss
+        roll:
+                image: mohnreddy/tomcat1
+	              ports:
+		                 - "8090:8080"
+                deploy:
+                replicas: 4
+                constraints:
+		                       - node.role == worker
+	           update_config:
+		                parallelism: 2
+		                delay: 20s
+		                order: stop-first
+		                failure_action: rollback
+	          restart_policy:
+		                condition:on-failure
+
+
+            RollbackConfig: 
+                    Parallelism: 1
+                    Delay: 20s
+                    FailureAction: 
+                    Order: stop-first                
+volumes:
+        kavya:
+        wild:
+
+networks:
+        hima:
+        jboss:
