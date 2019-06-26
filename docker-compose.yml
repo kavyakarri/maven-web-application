@@ -3,7 +3,7 @@ version: '3'
 services:
 
         tomcatnew:
-                image: 13.235.18.156:8083/hima
+                image: 13.127.33.147:8083/hima
                 container_name: kavya_tomcat
                 ports:
                         - "8090:8080"
@@ -15,7 +15,7 @@ services:
 
         jbossnew:
 
-                image: 13.235.18.156:8083/kavya
+                image: 13.127.33.147:8083/kavya
                 container_name: hima_jboss
                 ports:
                      - "8089:8080"
