@@ -44,7 +44,7 @@ services:
             RollbackConfig: 
                     Parallelism: 1
                     Delay: 20s
-                    FailureAction: 
+                    FailureAction: rollback
                     Order: stop-first                
 volumes:
         kavya:
